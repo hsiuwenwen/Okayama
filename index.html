@@ -1,785 +1,1166 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>岡山・瀨戶內 8天7夜漫遊手帳 | Okayama Trip</title>
+  <title>晴れの國・岡山 瀨戶內 8天7夜手帳 | 1/28 - 2/4</title>
+  
+  <!-- 字型：日系明朝體、思源繁黑體 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome 圖標庫 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'washi': '#FAF8F5',        // 和紙暖白
+            'indigo-deep': '#1D2A44',  // 瀨戶深靛藍
+            'aozora': '#407B9E',       // 晴天之國青空藍
+            'aozora-light': '#EBF2F7', // 淺青
+            'momo-pink': '#F7D6D0',    // 白桃粉
+            'momo-deep': '#D96557',    // 赤桃色
+            'matcha': '#7A8C6E',       // 庭園抹茶綠
+            'sumi': '#2C3338',         // 墨黑
+            'sumi-muted': '#6B747E',   // 淺墨灰
+            'card-border': '#EAE4DA'   // 和紙框線
+          },
+          fontFamily: {
+            serif: ['"Noto Serif JP"', 'serif'],
+            sans: ['"Zen Kaku Gothic New"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    :root {
-      --primary: #2d5a7b;       /* 瀨戶內海深藍 */
-      --primary-light: #e8f1f5; /* 晴之國淡青 */
-      --accent: #d97757;        /* 白桃朱暖色 */
-      --bg-warm: #faf8f5;       /* 日系和紙暖白 */
-      --surface: #ffffff;
-      --text-main: #2b303a;
-      --text-muted: #6b7280;
-      --border-color: #e5e7eb;
-      --tag-bg: #edf2f7;
-      --radius: 14px;
-      --shadow: 0 8px 24px rgba(45, 90, 123, 0.08);
-      --transition: all 0.3s ease;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Noto Sans TC', sans-serif;
-      background-color: var(--bg-warm);
-      color: var(--text-main);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
+      background-color: #FAF8F5;
+      color: #2C3338;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      background-image: radial-gradient(#E8E1D5 1.2px, transparent 1.2px);
+      background-size: 26px 26px;
     }
-
-    /* 頂部 Hero 區域 */
-    .hero {
-      position: relative;
-      background: linear-gradient(135deg, #20415a 0%, #3a7299 100%);
-      color: #ffffff;
-      padding: 90px 20px 80px;
-      text-align: center;
-      overflow: hidden;
+    .serif-title {
+      font-family: 'Noto Serif JP', serif;
     }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 30px;
-      background: var(--bg-warm);
-      border-radius: 30px 30px 0 0;
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
     }
-
-    .hero-tag {
-      display: inline-block;
-      padding: 6px 16px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
-      border-radius: 30px;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
-
-    .hero h1 {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      margin-bottom: 12px;
+    .zen-card {
+      background-color: #ffffff;
+      border: 1px solid #EAE4DA;
+      box-shadow: 0 4px 20px -3px rgba(29, 42, 68, 0.05);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
-    .hero p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 650px;
-      margin: 0 auto 28px;
-    }
-
-    .hero-meta {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .meta-chip {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-    }
-
-    /* 導航跳轉欄 (Sticky) */
-    .sticky-nav {
-      position: sticky;
-      top: 0;
-      background: rgba(250, 248, 245, 0.92);
-      backdrop-filter: blur(12px);
-      z-index: 100;
-      border-bottom: 1px solid var(--border-color);
-      padding: 12px 16px;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-
-    .nav-btn {
-      color: var(--text-main);
-      text-decoration: none;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-
-    .nav-btn:hover {
-      background: var(--primary-light);
-      color: var(--primary);
-    }
-
-    /* 主容器 */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
-
-    /* 日程卡片組件 */
-    .day-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,0.04);
-      margin-bottom: 42px;
-      padding: 32px 36px;
-      position: relative;
-      transition: var(--transition);
-    }
-
-    .day-card:hover {
+    .zen-card:hover {
+      box-shadow: 0 14px 30px -5px rgba(29, 42, 68, 0.09);
       transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(45, 90, 123, 0.12);
     }
-
-    .day-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 2px solid var(--primary-light);
-      padding-bottom: 14px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .day-title-wrap {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .day-badge {
-      background: var(--primary);
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 4px 12px;
-      border-radius: 8px;
-      letter-spacing: 1px;
-    }
-
-    .day-title {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 1.55rem;
-      color: var(--text-main);
-      font-weight: 700;
-    }
-
-    .day-date {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 1.05rem;
-    }
-
-    /* 時間軸與行程條目 */
-    .timeline {
-      position: relative;
-      padding-left: 26px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 7px;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background-color: var(--primary-light);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 24px;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -26px;
-      top: 7px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 3px solid var(--primary);
-    }
-
-    .item-time-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 6px;
-      flex-wrap: wrap;
-    }
-
-    .time-slot {
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 0.95rem;
-    }
-
-    .period-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .item-desc {
-      color: #4b5563;
-      font-size: 0.95rem;
-      margin-bottom: 8px;
-      text-align: justify;
-    }
-
-    /* 美食卡片與推薦提示 */
-    .dining-box {
-      margin-top: 22px;
-      background: #fff8f5;
-      border-left: 4px solid var(--accent);
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-size: 0.92rem;
-    }
-
-    .dining-title {
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .highlight-pill {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--primary);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 6px;
-      margin: 0 3px;
-    }
-
-    /* 實用小工具區域 (匯率、行李清單) */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
-    }
-
-    .tool-card {
-      background: var(--surface);
-      padding: 26px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .tool-card h3 {
-      font-size: 1.2rem;
-      color: var(--primary);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* 匯率計算機 */
-    .calc-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .calc-input {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      font-size: 0.95rem;
-      outline: none;
-    }
-
-    .calc-input:focus {
-      border-color: var(--primary);
-    }
-
-    .calc-result {
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--accent);
-      padding: 8px 0;
-    }
-
-    /* 清單 */
-    .checklist {
-      list-style: none;
-    }
-
-    .checklist li {
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.92rem;
-    }
-
-    .checklist input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--primary);
-      cursor: pointer;
-    }
-
-    /* 頁尾 */
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      border-top: 1px solid var(--border-color);
-    }
-
-    @media (max-width: 640px) {
-      .day-card {
-        padding: 24px 20px;
-      }
-      .hero h1 {
-        font-size: 2.1rem;
-      }
-      .day-title {
-        font-size: 1.3rem;
-      }
+    /* 景點圖片遮罩漸層 */
+    .img-gradient-overlay {
+      background: linear-gradient(180deg, rgba(29, 42, 68, 0.05) 0%, rgba(29, 42, 68, 0.7) 100%);
     }
   </style>
 </head>
-<body>
+<body class="selection:bg-momo-pink selection:text-indigo-deep relative">
 
-  <!-- Hero Header -->
-  <header class="hero">
-    <div class="hero-tag">JAPAN TRAVEL ITINERARY</div>
-    <h1>岡山・瀨戶內漫遊手帳</h1>
-    <p>晴れの國の緩慢步伐：倉敷水鄉、歷史廣島、金刀比羅宮與島嶼藝術探索</p>
-    <div class="hero-meta">
-      <span class="meta-chip">🗓 8 天 7 夜自由行</span>
-      <span class="meta-chip">🏨 岡山車站周邊樞紐住宿</span>
-      <span class="meta-chip">🚅 JR 關西廣島 / 瀨戶內周遊搭配</span>
+  <!-- 頂部 Sticky 導覽列 -->
+  <header class="sticky top-0 z-40 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-card-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-full bg-momo-pink flex items-center justify-center text-momo-deep font-serif font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
+          桃
+        </span>
+        <div class="flex flex-col">
+          <span class="serif-title font-bold text-base tracking-wide text-indigo-deep leading-tight">晴れの國・岡山行</span>
+          <span class="text-[10px] text-sumi-muted tracking-wider">8DAYS 7NIGHTS TRIP</span>
+        </div>
+      </a>
+
+      <!-- 快捷工具與日程 -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-sumi-muted">
+        <a href="#itinerary" class="hover:text-aozora transition-colors">8日行程</a>
+        <a href="#highlights" class="hover:text-aozora transition-colors">景點寫真</a>
+        <a href="#weather" class="hover:text-aozora transition-colors">天氣與著裝</a>
+        <a href="#calculator" class="hover:text-aozora transition-colors">匯率計算</a>
+        <a href="#packing" class="hover:text-aozora transition-colors">行李清單</a>
+      </nav>
+
+      <button onclick="document.getElementById('itinerary').scrollIntoView({behavior: 'smooth'})" class="px-4 py-2 bg-indigo-deep text-white text-xs font-semibold rounded-full hover:bg-aozora transition-colors shadow-sm flex items-center gap-1.5">
+        <i class="fa-regular fa-calendar-check text-[11px]"></i>
+        <span>查看日程 (1/28 - 2/4)</span>
+      </button>
     </div>
   </header>
 
-  <!-- Sticky Day Anchor Nav -->
-  <nav class="sticky-nav">
-    <a href="#day1" class="nav-btn">D1 抵達岡山</a>
-    <a href="#day2" class="nav-btn">D2 吉備與倉敷</a>
-    <a href="#day3" class="nav-btn">D3 廣島・宮島</a>
-    <a href="#day4" class="nav-btn">D4 金刀比羅宮</a>
-    <a href="#day5" class="nav-btn">D5 直島藝術</a>
-    <a href="#day6" class="nav-btn">D6 高松栗林</a>
-    <a href="#day7" class="nav-btn">D7 後樂園・城</a>
-    <a href="#day8" class="nav-btn">D8 滿載返程</a>
-  </nav>
-
-  <!-- Main Container -->
-  <main class="container">
-
-    <!-- Day 1 -->
-    <article class="day-card" id="day1">
-      <div class="day-header">
-        <div class="day-title-wrap">
-          <span class="day-badge">Day 1</span>
-          <h2 class="day-title">抵達岡山・入住放行李與市區初探</h2>
-        </div>
-        <div class="day-date">1 月 28 日</div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">15:25</span>
-            <span class="period-title">抵達岡山桃太郎機場</span>
-          </div>
-          <p class="item-desc">順利辦理入境與提領行李，出關後跟隨指標前往航廈外利木津巴士乘車處。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">16:30 - 17:10</span>
-            <span class="period-title">搭乘利木津巴士直達岡山車站西口</span>
-          </div>
-          <p class="item-desc">車程約 30–35 分鐘，免換車直奔市中心交通樞紐。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">17:30</span>
-            <span class="period-title">飯店 Check-in 安頓</span>
-          </div>
-          <p class="item-desc">於岡山站周邊飯店辦理入住手續，放妥大件行李，輕裝出門探路。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">18:00 - 21:00</span>
-            <span class="period-title">商圈漫遊與補給</span>
-          </div>
-          <p class="item-desc">在車站旁的 <span class="highlight-pill">AEON Mall 岡山</span> 或 <span class="highlight-pill">一番街地下街</span> 悠閒採買旅程補給品、零食與藥妝。</p>
-        </div>
-      </div>
-      <div class="dining-box">
-        <div class="dining-title">🍽 晚餐推薦</div>
-        岡山代表性鄉土料理<strong>「醬汁豬排丼」</strong>（推薦車站周邊名店 <em>味司野村</em>，品嚐濃厚多蜜醬汁與高麗菜絲的完美結合）或 AEON 餐廳街。
-      </div>
-    </article>
-
-    <!-- Day 2 -->
-    <article class="day-card" id="day2">
-      <div class="day-header">
-        <div class="day-title-wrap">
-          <span class="day-badge">Day 2</span>
-          <h2 class="day-title">桃太郎傳說與白壁老街水鄉</h2>
-        </div>
-        <div class="day-date">1 月 29 日</div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">09:00 - 12:00</span>
-            <span class="period-title">吉備津神社・桃太郎神話發祥地</span>
-          </div>
-          <p class="item-desc">自岡山站搭乘 JR 吉備線（桃太郎線）約 15 分鐘至「吉備津站」，步行約 10 分鐘抵達。參拜桃太郎原型吉備津彥命，欣賞長達近 400 公尺、順應自然起伏的國寶級木造大迴廊。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">13:00 - 17:30</span>
-            <span class="period-title">倉敷美觀地區漫步</span>
-          </div>
-          <p class="item-desc">自吉備線轉乘 JR 山陽本線至倉敷站（約 17 分鐘）。沿著倉敷川欣賞江戶時代白壁土藏建築群、大原美術館外觀、常春藤廣場，品嚐當季白桃或水果聖代、吉備糰子。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">18:00 - 19:30</span>
-            <span class="period-title">倉敷美觀點燈夜景</span>
-          </div>
-          <p class="item-desc">入夜後欣賞石橋與白壁倒映在川面的靜謐美景，隨後搭車返回岡山。</p>
-        </div>
-      </div>
-      <div class="dining-box">
-        <div class="dining-title">🍽 美食推薦</div>
-        <strong>午餐：</strong>倉敷手打烏龍麵或老街名物御膳。<br>
-        <strong>晚餐：</strong>倉敷美觀巷弄老宅居酒屋，或岡山站的在地中華蕎麥／隱岐拉麵。
-      </div>
-    </article>
-
-    <!-- Day 3 -->
-    <article class="day-card" id="day3">
-      <div class="day-header">
-        <div class="day-title-wrap">
-          <span class="day-badge">Day 3</span>
-          <h2 class="day-title">廣島和平歷史與宮島海上大鳥居</h2>
-        </div>
-        <div class="day-date">1 月 30 日</div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">08:30 - 11:30</span>
-            <span class="period-title">山陽新幹線直奔廣島・和平紀念公園</span>
-          </div>
-          <p class="item-desc">搭乘山陽新幹線僅約 35 分鐘即抵達廣島站，轉乘路面電車至「原爆ドーム前」。參訪世界遺產 <span class="highlight-pill">原子彈爆炸圓頂屋</span> 與和平公園，體會歷史與和平意義。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">11:30 - 12:45</span>
-            <span class="period-title">道地廣島燒午餐</span>
-          </div>
-          <p class="item-desc">品嚐層次分明、底層焦香四溢的廣島燒（名店推薦：<em>麗ちゃん</em> 或 <em>みっちゃん總本店</em>）。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">13:00 - 17:30</span>
-            <span class="period-title">宮島・嚴島神社海上鳥居巡禮</span>
-          </div>
-          <p class="item-desc">搭乘 JR 轉宮島渡輪登島。參訪名列日本三景的 <span class="highlight-pill">嚴島神社</span> 與巨大朱紅海上鳥居（建議留意當日潮汐，滿潮看漂浮之姿、退潮可走到鳥居下）。在表參道商店街大啖現烤生蠔與紅葉饅頭。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">18:00</span>
-            <span class="period-title">搭乘渡輪與新幹線返回岡山</span>
-          </div>
-          <p class="item-desc">回程新幹線舒適快捷，約 35 分鐘回到岡山站放鬆休息。</p>
-        </div>
-      </div>
-      <div class="dining-box">
-        <div class="dining-title">🍽 晚餐推薦</div>
-        岡山站內「岡山さんすて (Sun Station)」享用黑毛和牛燒肉或在地海鮮居酒屋。
-      </div>
-    </article>
-
-    <!-- Day 4 -->
-    <article class="day-card" id="day4">
-      <div class="day-header">
-        <div class="day-title-wrap">
-          <span class="day-badge">Day 4</span>
-          <h2 class="day-title">四國香川・朝聖日本人一生必去「金刀比羅宮」</h2>
-        </div>
-        <div class="day-date">1 月 31 日</div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">08:20 - 09:20</span>
-            <span class="period-title">搭乘 JR 特急南風直達琴平站</span>
-          </div>
-          <p class="item-desc">自岡山站搭乘直達特急列車，沿途跨越壯麗的瀨戶大橋，約 60 分鐘抵達四國琴平。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">09:30 - 13:00</span>
-            <span class="period-title">挑戰石階攀登「金刀比羅宮」</span>
-          </div>
-          <p class="item-desc">一步一階洗滌身心，登上 785 階御本宮俯瞰遼闊的讚岐平原；若體力充沛可挑戰攀至 1,368 階奧社，祈求平安與好運。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">14:00 - 16:30</span>
-            <span class="period-title">金丸座戲院與琴平復古街景</span>
-          </div>
-          <p class="item-desc">順訪日本現存最古老歌舞伎劇場「舊金毘羅大芝居（金丸座）」，在充滿江戶溫泉宿場氛圍的琴平町老街散步，傍晚搭乘特急返回岡山。</p>
-        </div>
-      </div>
-      <div class="dining-box">
-        <div class="dining-title">🍽 美食推薦</div>
-        <strong>午餐：</strong>琴平表參道享用老字號讚岐手打烏龍麵（如 <em>中野烏龍麵學校</em>）與金箔霜淇淋。<br>
-        <strong>晚餐：</strong>岡山名物「散壽司（ばら寿司）」或瀨戶內海新鮮刺身（下津井章魚、鰆魚）。
-      </div>
-    </article>
-
-    <!-- Day 5 -->
-    <article class="day-card" id="day5">
-      <div class="day-header">
-        <div class="day-title-wrap">
-          <span class="day-badge">Day 5</span>
-          <h2 class="day-title">瀨戶內海藝術跳島・直島宮浦港文藝巡禮</h2>
-        </div>
-        <div class="day-date">2 月 1 日</div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">08:20 - 09:42</span>
-            <span class="period-title">岡山前往宇野港・搭船前進直島</span>
-          </div>
-          <p class="item-desc">搭乘 JR 宇野線抵達宇野站，步行至碼頭轉搭四國汽船渡輪前往直島（宮浦港），航程約 20 分鐘。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">10:00 - 12:30</span>
-            <span class="period-title">宮浦港經典地標巡禮</span>
-          </div>
-          <p class="item-desc">登島即可合影草間彌生代表作 <span class="highlight-pill">紅南瓜</span>、妹島和世設計的候船室、藤本壯介的白色多面體幾何結構「直島 Pavilion」。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">13:30 - 16:30</span>
-            <span class="period-title">直島錢湯 I♥湯 或 本村家計畫</span>
-          </div>
-          <p class="item-desc">感受大竹伸朗改造的迷幻錢湯藝術「直島錢湯 I♥湯」，或搭乘公車/租借電動腳踏車至本村地區探訪由古民宅活化的「家計畫 (Art House Project)」。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">17:00</span>
-            <span class="period-title">渡輪回程・返抵岡山</span>
-          </div>
-          <p class="item-desc">搭乘傍晚渡輪返回宇野港，再銜接電車返回岡山市區。</p>
-        </div>
-      </div>
-      <div class="dining-box">
-        <div class="dining-title">🍽 美食推薦</div>
-        <strong>午餐：</strong>宮浦港旁海鮮食堂或文青咖哩咖啡館。<br>
-        <strong>晚餐：</strong>宇野港邊海鮮丼，或返回岡山享用千屋牛和牛燒肉、串燒居酒屋。
-      </div>
-    </article>
-
-    <!-- Day 6 -->
-    <article class="day-card" id="day6">
-      <div class="day-header">
-        <div class="day-title-wrap">
-          <span class="day-badge">Day 6</span>
-          <h2 class="day-title">香川高松・栗林公園名勝與烏龍麵之鄉</h2>
-        </div>
-        <div class="day-date">2 月 2 日</div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">08:50 - 09:45</span>
-            <span class="period-title">搭乘快速 Marine Liner 跨海抵達高松</span>
-          </div>
-          <p class="item-desc">經由瀨戶大橋前往四國高松，車窗外飽覽瀨戶內海群島風光，車程約 55 分鐘。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">10:00 - 12:30</span>
-            <span class="period-title">特別名勝・栗林公園</span>
-          </div>
-          <p class="item-desc">漫步米其林三星評價的日本傳統大名庭園，造訪掬月亭體驗奉茶抹茶與茶菓子，將南湖與偃月橋的倒影盡收眼底。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">14:00 - 17:00</span>
-            <span class="period-title">高松港、玉藻公園與瓦町商店街</span>
-          </div>
-          <p class="item-desc">走訪高松城跡（玉藻公園）欣賞罕見的海水護城河，到高松港眺望紅燈塔「瀨戶之標」，傍晚在長拱廊商圈漫步採買。</p>
-        </div>
-      </div>
-      <div class="dining-box">
-        <div class="dining-title">🍽 美食推薦</div>
-        <strong>午餐：</strong>正統高松烏龍麵名店（如 <em>手打十段 烏龍麵笨蛋一代</em> 奶油黑胡椒拌麵）。<br>
-        <strong>晚餐：</strong>香川名物「骨付鳥」（皮脆肉嫩、胡椒辛辣入味的帶骨烤雞腿，推名店 <em>一鶴</em>）。
-      </div>
-    </article>
-
-    <!-- Day 7 -->
-    <article class="day-card" id="day7">
-      <div class="day-header">
-        <div class="day-title-wrap">
-          <span class="day-badge">Day 7</span>
-          <h2 class="day-title">岡山深度慢活・日本三大名園與烏城</h2>
-        </div>
-        <div class="day-date">2 月 3 日</div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">09:30 - 12:00</span>
-            <span class="period-title">日本三大名園之一「岡山後樂園」</span>
-          </div>
-          <p class="item-desc">搭乘岡山路面電車至「城下站」步行抵達。冬日漫步於開闊庭園中，欣賞延養亭、澤之池與精緻起伏的人造假山造景。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">13:00 - 15:30</span>
-            <span class="period-title">黑色漆甲的「岡山城（烏城）」</span>
-          </div>
-          <p class="item-desc">跨過月見橋即可抵達氣勢非凡的烏城天守閣，俯瞰旭川風光，城內還可體驗戰國武將試穿與特色水果聖代。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">16:00 - 18:30</span>
-            <span class="period-title">出石町老街巡禮與免稅大採買</span>
-          </div>
-          <p class="item-desc">在充滿明治大正風情的老街喝杯手沖咖啡，傍晚返回岡山站周邊（唐吉訶德、Bic Camera、AEON Mall）完成退稅採購。</p>
-        </div>
-      </div>
-      <div class="dining-box">
-        <div class="dining-title">🍽 美食推薦</div>
-        <strong>午餐：</strong>後樂園旁出石町老宅定食或岡山白桃咖哩。<br>
-        <strong>晚餐：</strong>岡山在地精釀啤酒餐酒館，或岡山一番街奢華壽喜燒御膳。
-      </div>
-    </article>
-
-    <!-- Day 8 -->
-    <article class="day-card" id="day8">
-      <div class="day-header">
-        <div class="day-title-wrap">
-          <span class="day-badge">Day 8</span>
-          <h2 class="day-title">名產採買與平安歸國</h2>
-        </div>
-        <div class="day-date">2 月 4 日</div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">09:30 - 11:30</span>
-            <span class="period-title">退房寄物・伴手禮最後衝刺</span>
-          </div>
-          <p class="item-desc">飯店退房寄放行李，於「Sun Station Terrace 岡山」一網打盡特產：廣榮堂元祖吉備糰子、大手饅頭、清水白桃果凍及瀨戶內檸檬點心。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">12:00 - 13:00</span>
-            <span class="period-title">回味午餐與前往機場</span>
-          </div>
-          <p class="item-desc">享用旅途最後一道心儀日料，領取行李後至岡山站西口搭乘利木津巴士直達桃太郎機場（建議起飛前 2 小時抵達）。</p>
-        </div>
-        <div class="timeline-item">
-          <div class="item-time-title">
-            <span class="time-slot">下午</span>
-            <span class="period-title">辦理登機・滿載美好回憶返台</span>
-          </div>
-          <p class="item-desc">出境免稅店最後補貨，平安搭機返家，結束充實精采的瀨戶內之旅！</p>
-        </div>
-      </div>
-    </article>
-
-    <!-- 實用工具箱 -->
-    <section class="tools-grid">
-      <!-- 匯率試算 -->
-      <div class="tool-card">
-        <h3>💴 即時匯率簡易換算</h3>
-        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom: 12px;">以參考匯率 0.21 換算（可自行調整）</p>
-        <div class="calc-row">
-          <input type="number" id="jpyAmount" class="calc-input" placeholder="日幣 JPY" value="10000">
-        </div>
-        <div class="calc-result" id="twdDisplay">約 NT$ 2,100 元</div>
+  <!-- Hero 區域 -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-8">
+    <div class="relative rounded-3xl overflow-hidden zen-card border-none bg-gradient-to-r from-indigo-deep via-[#294266] to-aozora text-white p-8 sm:p-12">
+      <!-- 背景浮水印裝飾 (和風圓波紋) -->
+      <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+        <svg width="340" height="340" viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="45" stroke="white" stroke-width="2" fill="none"/>
+          <circle cx="50" cy="50" r="35" stroke="white" stroke-width="2" fill="none"/>
+          <circle cx="50" cy="50" r="25" stroke="white" stroke-width="2" fill="none"/>
+          <circle cx="50" cy="50" r="15" stroke="white" stroke-width="2" fill="none"/>
+        </svg>
       </div>
 
-      <!-- 出國行前檢查清單 -->
-      <div class="tool-card">
-        <h3>🎒 必備清單 Check</h3>
-        <ul class="checklist">
-          <li><label><input type="checkbox" checked> 護照（效期6個月以上）</label></li>
-          <li><label><input type="checkbox" checked> Visit Japan Web 登錄 QR Code</label></li>
-          <li><label><input type="checkbox"> JR Pass 兌換券憑證</label></li>
-          <li><label><input type="checkbox"> 網卡 / eSIM / 漫遊開通</label></li>
-          <li><label><input type="checkbox"> 行動電源與雙孔充電頭</label></li>
-          <li><label><input type="checkbox"> 舒適好走的運動健走鞋</label></li>
-        </ul>
+      <div class="relative z-10 max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 text-xs font-medium mb-5">
+          <span class="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></span>
+          2026.01.28 — 02.04 個人自由行手帳
+        </div>
+        <h1 class="serif-title text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4 tracking-wide">
+          晴天之國・岡山<br><span class="text-momo-pink font-light">瀨戶內水鄉與海島</span> 漫遊手帳
+        </h1>
+        <p class="text-white/85 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+          從江戶水鄉倉敷美觀，到廣島原爆和平圓頂與宮島海上鳥居；自四國香川金刀比羅宮、高松米其林庭園栗林公園，至瀨戶內當代藝術直島。以岡山為樞紐，穿梭於山海、古寺與現代文藝之間。
+        </p>
+
+        <!-- 快速資訊徽章 -->
+        <div class="flex flex-wrap gap-2 text-[11px]">
+          <span class="px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 flex items-center gap-1.5">
+            <i class="fa-solid fa-hotel text-amber-300"></i> 全程住宿：岡山站周邊連住
+          </span>
+          <span class="px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 flex items-center gap-1.5">
+            <i class="fa-solid fa-train text-teal-300"></i> 新幹線＋JR 快速＋渡輪搭配
+          </span>
+          <span class="px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 flex items-center gap-1.5">
+            <i class="fa-solid fa-utensils text-rose-300"></i> 醬汁豬排・廣島燒・讚岐烏龍・散壽司
+          </span>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <!-- 快速天氣與日照看板 (Weather Notice) -->
+  <section id="weather" class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+    <div class="bg-white rounded-2xl p-5 border border-card-border flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-indigo-deep text-sm">晴天之國（降雨率全日本最低）冬季旅行注意</h4>
+          <p class="text-sumi-muted text-[11px] mt-0.5">1月下旬 ~ 2月上旬岡山平均氣溫約 2°C ~ 10°C，晴朗乾燥日照充足。防風大衣、保暖圍巾必備；金刀比羅宮與宮島步行多，建議穿著防滑好走球鞋。</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <span class="px-3 py-1.5 rounded-lg bg-aozora-light text-aozora font-semibold">白晝時間：07:05 - 17:35</span>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>© 岡山・瀨戶內 8天7夜個人旅遊手帳 | 祝旅途愉快・晴れの國</p>
+  <!-- 區域分類篩選 + 行程天數導航 -->
+  <section id="itinerary" class="max-w-6xl mx-auto px-4 sm:px-6 pt-10">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+      <div>
+        <span class="text-xs font-bold tracking-widest text-aozora uppercase">Daily Itinerary</span>
+        <h2 class="serif-title text-2xl sm:text-3xl font-bold text-indigo-deep mt-1">8天7夜 詳細行程日程</h2>
+      </div>
+
+      <!-- 區域篩選 -->
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+        <button onclick="filterRegion('all')" class="region-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-indigo-deep text-white transition-all shadow-sm" data-region="all">全部</button>
+        <button onclick="filterRegion('okayama')" class="region-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-sumi-muted border border-card-border hover:border-aozora transition-all" data-region="okayama">岡山・吉備</button>
+        <button onclick="filterRegion('kurashiki')" class="region-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-sumi-muted border border-card-border hover:border-aozora transition-all" data-region="kurashiki">倉敷美觀</button>
+        <button onclick="filterRegion('hiroshima')" class="region-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-sumi-muted border border-card-border hover:border-aozora transition-all" data-region="hiroshima">廣島・宮島</button>
+        <button onclick="filterRegion('kagawa')" class="region-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-sumi-muted border border-card-border hover:border-aozora transition-all" data-region="kagawa">四國香川</button>
+        <button onclick="filterRegion('naoshima')" class="region-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-sumi-muted border border-card-border hover:border-aozora transition-all" data-region="naoshima">直島跳島</button>
+      </div>
+    </div>
+
+    <!-- 天數切換 Tab -->
+    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 mb-8">
+      <a href="#day-1" class="px-3.5 py-1.5 rounded-xl bg-white border border-card-border text-xs font-medium text-sumi hover:border-aozora whitespace-nowrap">D1 (1/28) 抵達</a>
+      <a href="#day-2" class="px-3.5 py-1.5 rounded-xl bg-white border border-card-border text-xs font-medium text-sumi hover:border-aozora whitespace-nowrap">D2 (1/29) 吉備・倉敷</a>
+      <a href="#day-3" class="px-3.5 py-1.5 rounded-xl bg-white border border-card-border text-xs font-medium text-sumi hover:border-aozora whitespace-nowrap">D3 (1/30) 廣島・宮島</a>
+      <a href="#day-4" class="px-3.5 py-1.5 rounded-xl bg-white border border-card-border text-xs font-medium text-sumi hover:border-aozora whitespace-nowrap">D4 (1/31) 金刀比羅宮</a>
+      <a href="#day-5" class="px-3.5 py-1.5 rounded-xl bg-white border border-card-border text-xs font-medium text-sumi hover:border-aozora whitespace-nowrap">D5 (2/1) 直島藝術</a>
+      <a href="#day-6" class="px-3.5 py-1.5 rounded-xl bg-white border border-card-border text-xs font-medium text-sumi hover:border-aozora whitespace-nowrap">D6 (2/2) 高松栗林</a>
+      <a href="#day-7" class="px-3.5 py-1.5 rounded-xl bg-white border border-card-border text-xs font-medium text-sumi hover:border-aozora whitespace-nowrap">D7 (2/3) 後樂園・城</a>
+      <a href="#day-8" class="px-3.5 py-1.5 rounded-xl bg-white border border-card-border text-xs font-medium text-sumi hover:border-aozora whitespace-nowrap">D8 (2/4) 伴手禮返程</a>
+    </div>
+
+    <!-- 行程卡片容器 -->
+    <div class="space-y-10" id="itinerary-cards-container">
+
+      <!-- Day 1 卡片 -->
+      <div id="day-1" class="day-card zen-card rounded-3xl overflow-hidden p-6 sm:p-8" data-regions="okayama">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-card-border pb-4 mb-6 gap-3">
+          <div class="flex items-center gap-3.5">
+            <span class="w-12 h-12 rounded-2xl bg-aozora text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">D1</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-aozora">1月28日 (週三)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-sumi-muted">抵達初訪</span>
+              </div>
+              <h3 class="serif-title font-bold text-xl text-indigo-deep">抵達岡山・入住放行李與市區初探</h3>
+            </div>
+          </div>
+          <span class="text-xs px-3 py-1 bg-aozora-light text-aozora rounded-full w-fit">🚌 利木津巴士直達車站</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- 攝影圖卡 -->
+          <div class="lg:col-span-5 relative rounded-2xl overflow-hidden aspect-[4/3] group cursor-pointer" onclick="openDrawer('okayama-station')">
+            <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80" alt="岡山車站市區街景" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-4 text-white">
+              <span class="text-[10px] tracking-wider uppercase text-amber-200">Hub Location</span>
+              <h4 class="font-serif font-bold text-base">岡山車站商圈 & AEON Mall</h4>
+              <p class="text-[11px] text-white/80 line-clamp-1">西日本規模最大的大型購物中心與站前地下街</p>
+              <span class="text-[10px] text-white/90 mt-1 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square"></i> 點選查看詳細資訊</span>
+            </div>
+          </div>
+
+          <!-- 行程節奏細節 -->
+          <div class="lg:col-span-7 space-y-4 text-xs text-sumi-muted">
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">15:25</span>
+              <p><strong class="text-indigo-deep">抵達岡山桃太郎機場</strong>：辦理入境手續與提領托運行李，隨後至航廈外 2 號乘車處等候直達巴士。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">16:30 - 17:10</span>
+              <p><strong class="text-indigo-deep">搭乘利木津巴士</strong>：直達岡山車站西口（車程約 30–35 分鐘，單程票價 780 日圓，售票機可刷卡/現金）。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">17:30</span>
+              <p><strong class="text-indigo-deep">飯店 Check-in 安頓</strong>：至岡山站周邊飯店辦理入住手續，放下大件行李卸除疲勞。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">18:00 - 21:00</span>
+              <p><strong class="text-indigo-deep">市區採買</strong>：前往車站共構的 <span class="text-indigo-deep font-semibold">一番街地下街</span> 或鄰近的西日本旗艦級 <span class="text-indigo-deep font-semibold">AEON Mall 岡山</span> 採買旅程零食、飲水與補給品。</p>
+            </div>
+
+            <!-- 美食框 -->
+            <div class="p-3.5 rounded-xl bg-orange-50/60 border border-orange-200/50 text-sumi mt-4">
+              <span class="font-bold text-momo-deep text-xs flex items-center gap-1.5 mb-1">
+                <i class="fa-solid fa-utensils"></i> 晚餐推薦：岡山名物「醬汁豬排丼」
+              </span>
+              <p class="text-[11px] text-sumi-muted leading-relaxed">
+                造訪車站附近的昭和名老鋪 <strong>「味司野村」</strong>（味司野村），品嚐岡山特色濃厚多蜜醬汁（Demi-glace Sauce）淋在現炸香酥里肌豬排上，配高麗菜絲極為下飯；或於 AEON 6~7 樓主題餐廳街選擇多樣和風料理。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2 卡片 -->
+      <div id="day-2" class="day-card zen-card rounded-3xl overflow-hidden p-6 sm:p-8" data-regions="okayama kurashiki">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-card-border pb-4 mb-6 gap-3">
+          <div class="flex items-center gap-3.5">
+            <span class="w-12 h-12 rounded-2xl bg-matcha text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">D2</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-matcha">1月29日 (週四)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-sumi-muted">神話與江戶水鄉</span>
+              </div>
+              <h3 class="serif-title font-bold text-xl text-indigo-deep">桃太郎傳說與白壁老街：吉備津神社 ＆ 倉敷美觀</h3>
+            </div>
+          </div>
+          <span class="text-xs px-3 py-1 bg-green-50 text-green-700 rounded-full w-fit">🚃 JR 桃太郎線 ＋ 山陽本線</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- 雙景點照片圖組 -->
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] group cursor-pointer" onclick="openDrawer('kibitsu')">
+              <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80" alt="吉備津神社" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-3.5 text-white">
+                <span class="text-[10px] text-amber-200">國寶指定 • 桃太郎原型</span>
+                <h4 class="font-serif font-bold text-sm">吉備津神社（400m木造長迴廊）</h4>
+                <span class="text-[10px] text-white/80"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看細節</span>
+              </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] group cursor-pointer" onclick="openDrawer('kurashiki')">
+              <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="倉敷美觀地區" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-3.5 text-white">
+                <span class="text-[10px] text-teal-200">重要傳統建築群 • 4.4★</span>
+                <h4 class="font-serif font-bold text-sm">倉敷美觀地區（川舟與白壁）</h4>
+                <span class="text-[10px] text-white/80"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看細節</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 行程節奏細節 -->
+          <div class="lg:col-span-7 space-y-4 text-xs text-sumi-muted">
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">09:00 - 12:00</span>
+              <p><strong class="text-indigo-deep">吉備津神社</strong>：自岡山站搭乘 JR 吉備線（桃太郎線）約 15 分鐘至吉備津站，步行 10 分鐘抵達。參拜桃太郎原型「大吉備津彥命」，走在全長近 400 公尺、隨山勢起伏延伸的木造國寶大迴廊，感受莊嚴清幽的神社古境。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">12:00 - 13:00</span>
+              <p><strong class="text-indigo-deep">午餐過渡</strong>：自吉備津搭電車或前往倉敷，享用在地現煮手工烏龍麵或名物定食。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">13:00 - 17:30</span>
+              <p><strong class="text-indigo-deep">倉敷美觀地區探索</strong>：搭乘 JR 山陽本線至倉敷站（約 17 分鐘）。漫步倉敷川兩岸白壁土藏建築，欣賞常春藤廣場紅磚牆，遠眺大原美術館希臘神殿式外觀；品嚐白桃霜淇淋聖代與現烤吉備糰子。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">18:00 - 19:30</span>
+              <p><strong class="text-indigo-deep">倉敷夜間點燈</strong>：夜晚兩旁石燈籠與老宅溫潤黃光倒映在倉敷川水面上，沉澱安詳，之後搭 JR 返回岡山。</p>
+            </div>
+
+            <!-- 美食框 -->
+            <div class="p-3.5 rounded-xl bg-orange-50/60 border border-orange-200/50 text-sumi mt-4">
+              <span class="font-bold text-momo-deep text-xs flex items-center gap-1.5 mb-1">
+                <i class="fa-solid fa-utensils"></i> 晚餐推薦：倉敷老宅酒場 / 岡山隱岐拉麵
+              </span>
+              <p class="text-[11px] text-sumi-muted leading-relaxed">
+                可選擇於倉敷美觀町家老宅改建的古風居酒屋用餐，或回岡山站品嚐在地濃郁的「隱岐拉麵」或經典醬油中華蕎麥麵暖身。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3 卡片 -->
+      <div id="day-3" class="day-card zen-card rounded-3xl overflow-hidden p-6 sm:p-8" data-regions="hiroshima">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-card-border pb-4 mb-6 gap-3">
+          <div class="flex items-center gap-3.5">
+            <span class="w-12 h-12 rounded-2xl bg-[#C85A5A] text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">D3</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-[#C85A5A]">1月30日 (週五)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-sumi-muted">雙世界遺產巡禮</span>
+              </div>
+              <h3 class="serif-title font-bold text-xl text-indigo-deep">廣島和平紀念公園 ＆ 宮島海上大鳥居</h3>
+            </div>
+          </div>
+          <span class="text-xs px-3 py-1 bg-red-50 text-red-700 rounded-full w-fit">🚅 山陽新幹線（35分）＋ JR 渡輪</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- 雙景點圖組 -->
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] group cursor-pointer" onclick="openDrawer('atomic-dome')">
+              <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80" alt="廣島原子彈爆炸圓頂屋" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-3.5 text-white">
+                <span class="text-[10px] text-amber-200">世界文化遺產 • 4.7★</span>
+                <h4 class="font-serif font-bold text-sm">廣島和平紀念公園（原爆圓頂）</h4>
+                <span class="text-[10px] text-white/80"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看細節</span>
+              </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] group cursor-pointer" onclick="openDrawer('itsukushima')">
+              <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=800&q=80" alt="宮島嚴島神社海上鳥居" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-3.5 text-white">
+                <span class="text-[10px] text-rose-200">日本三景 • 4.6★</span>
+                <h4 class="font-serif font-bold text-sm">宮島嚴島神社（朱紅海上大鳥居）</h4>
+                <span class="text-[10px] text-white/80"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看細節</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 行程節奏細節 -->
+          <div class="lg:col-span-7 space-y-4 text-xs text-sumi-muted">
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">08:30 - 09:10</span>
+              <p><strong class="text-indigo-deep">山陽新幹線直達</strong>：自岡山搭新幹線前往廣島站（僅 35 分鐘），轉乘廣島路面電車（廣電 2 號或 6 號線）抵達「原爆ドーム前」。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">09:30 - 11:30</span>
+              <p><strong class="text-indigo-deep">原爆圓頂屋與和平公園</strong>：近距離凝視這座戰爭倖存的世界遺產，走訪和平之鐘與資料館，沉思生命與和平之重。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">11:30 - 12:45</span>
+              <p><strong class="text-indigo-deep">午餐享用廣島燒</strong>：於廣島車站「ekie」商場或本通，品嚐名店（如 <em>麗ちゃん</em> 或 <em>みっちゃん總本店</em>），以炒麵、薄餅與甘美醬汁交織的層次廣島燒。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">13:00 - 17:30</span>
+              <p><strong class="text-indigo-deep">宮島・嚴島神社登島</strong>：JR 山陽本線至宮島口站搭渡輪登島。滿潮時大鳥居宛如漂浮於瀨戶內海中；在表參道品嚐肥美香烤生蠔與楓葉紅葉饅頭。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">18:00</span>
+              <p><strong class="text-indigo-deep">搭渡輪與新幹線返程</strong>：輕鬆返回岡山站。</p>
+            </div>
+
+            <!-- 美食框 -->
+            <div class="p-3.5 rounded-xl bg-orange-50/60 border border-orange-200/50 text-sumi mt-4">
+              <span class="font-bold text-momo-deep text-xs flex items-center gap-1.5 mb-1">
+                <i class="fa-solid fa-utensils"></i> 晚餐推薦：岡山站內 Sun Station 和牛燒肉
+              </span>
+              <p class="text-[11px] text-sumi-muted leading-relaxed">
+                回到岡山站「さんすて (Sun Station)」，犒賞整天步行的雙腿，享用精緻黑毛和牛燒肉或在地特色海鮮居酒屋。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 4 卡片 -->
+      <div id="day-4" class="day-card zen-card rounded-3xl overflow-hidden p-6 sm:p-8" data-regions="kagawa">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-card-border pb-4 mb-6 gap-3">
+          <div class="flex items-center gap-3.5">
+            <span class="w-12 h-12 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">D4</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-amber-600">1月31日 (週六)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-sumi-muted">四國海神信仰</span>
+              </div>
+              <h3 class="serif-title font-bold text-xl text-indigo-deep">四國香川・朝聖日本人一生必去一次的金刀比羅宮</h3>
+            </div>
+          </div>
+          <span class="text-xs px-3 py-1 bg-amber-50 text-amber-800 rounded-full w-fit">🚆 JR 特急南風（跨瀨戶大橋60分）</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- 攝影圖卡 -->
+          <div class="lg:col-span-5 relative rounded-2xl overflow-hidden aspect-[4/3] group cursor-pointer" onclick="openDrawer('kotohiragu')">
+            <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=900&q=80" alt="金刀比羅宮象頭山石階" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-4 text-white">
+              <span class="text-[10px] tracking-wider uppercase text-amber-200">日本人一生必去一回 • 4.5★</span>
+              <h4 class="font-serif font-bold text-base">金刀比羅宮（785階御本宮至奧社）</h4>
+              <p class="text-[11px] text-white/80 line-clamp-1">守護海運安全之神，俯瞰讚岐平原壯麗絕景</p>
+              <span class="text-[10px] text-white/90 mt-1 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square"></i> 點選查看詳細資訊</span>
+            </div>
+          </div>
+
+          <!-- 行程節奏細節 -->
+          <div class="lg:col-span-7 space-y-4 text-xs text-sumi-muted">
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">08:20 - 09:20</span>
+              <p><strong class="text-indigo-deep">搭乘特急南風（Nanpu）</strong>：自岡山直通香川琴平站（約 60 分鐘），沿途飛馳跨越世界級的瀨戶大橋，飽覽海島美景。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">09:30 - 13:00</span>
+              <p><strong class="text-indigo-deep">金刀比羅宮階梯挑戰</strong>：穿過參道商店街，挑戰登上 785 階御本宮，遠眺琴平町與讚岐富士；體力充沛可挑戰攀登至 1,368 階嚴魂神社（奧社）。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">13:00 - 14:00</span>
+              <p><strong class="text-indigo-deep">讚岐烏龍麵午餐</strong>：於表參道享用老字號手打讚岐烏龍麵（如 <em>中野烏龍麵學校</em> 門市），並品嚐金碧輝煌的「金箔霜淇淋」。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">14:00 - 16:30</span>
+              <p><strong class="text-indigo-deep">舊金毘羅大芝居（金丸座）</strong>：走訪日本現存最古老木造歌舞伎劇場，感受復古花道與旋轉舞台魅力，下午搭乘特急返岡山。</p>
+            </div>
+
+            <!-- 美食框 -->
+            <div class="p-3.5 rounded-xl bg-orange-50/60 border border-orange-200/50 text-sumi mt-4">
+              <span class="font-bold text-momo-deep text-xs flex items-center gap-1.5 mb-1">
+                <i class="fa-solid fa-utensils"></i> 晚餐推薦：岡山名物「散壽司（ばら寿司）」或瀨戶海鮮
+              </span>
+              <p class="text-[11px] text-sumi-muted leading-relaxed">
+                品嚐岡山江戶時代留傳至今的奢華代表作「岡山散壽司」，鋪滿醃漬鰆魚、下津井章魚、星鰻與旬味蔬菜；或到居酒屋享用新鮮鰆魚生魚片。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 5 卡片 -->
+      <div id="day-5" class="day-card zen-card rounded-3xl overflow-hidden p-6 sm:p-8" data-regions="naoshima">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-card-border pb-4 mb-6 gap-3">
+          <div class="flex items-center gap-3.5">
+            <span class="w-12 h-12 rounded-2xl bg-aozora text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">D5</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-aozora">2月1日 (週日)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-sumi-muted">現代藝術聖地</span>
+              </div>
+              <h3 class="serif-title font-bold text-xl text-indigo-deep">瀨戶內海藝術跳島・直島宮浦港文藝巡禮</h3>
+            </div>
+          </div>
+          <span class="text-xs px-3 py-1 bg-sky-50 text-sky-800 rounded-full w-fit">⛴ 四國汽船渡輪（20分）＋ JR 宇野線</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- 攝影圖卡 -->
+          <div class="lg:col-span-5 relative rounded-2xl overflow-hidden aspect-[4/3] group cursor-pointer" onclick="openDrawer('naoshima')">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=900&q=80" alt="直島草間彌生紅南瓜" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-4 text-white">
+              <span class="text-[10px] tracking-wider uppercase text-amber-200">Art Island • 4.5★</span>
+              <h4 class="font-serif font-bold text-base">直島宮浦港（草間彌生「紅南瓜」）</h4>
+              <p class="text-[11px] text-white/80 line-clamp-1">四國汽船大型渡輪直達，妹島和世與藤本壯介當代建築群</p>
+              <span class="text-[10px] text-white/90 mt-1 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square"></i> 點選查看詳細資訊</span>
+            </div>
+          </div>
+
+          <!-- 行程節奏細節 -->
+          <div class="lg:col-span-7 space-y-4 text-xs text-sumi-muted">
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">08:20 - 09:10</span>
+              <p><strong class="text-indigo-deep">岡山搭電車至宇野港</strong>：自岡山站搭乘 JR 宇野線至終點宇野站（約 45–50 分鐘），出站步行 5 分鐘抵達宇野港乘船碼頭。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">09:22 - 09:42</span>
+              <p><strong class="text-indigo-deep">四國汽船直達直島宮浦港</strong>：搭乘大型渡輪前往直島（航程 20 分鐘，在開闊甲板迎著瀨戶內海微風）。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">10:00 - 12:30</span>
+              <p><strong class="text-indigo-deep">宮浦港經典藝術散策</strong>：一下船立刻合照草間彌生知名的 <span class="text-momo-deep font-bold">「紅南瓜」</span>（可鑽入內部從圓洞探出頭拍照）、欣賞妹島和世設計的極簡渡輪候船室，與藤本壯介的白色多面體「直島 Pavilion」。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">13:30 - 16:30</span>
+              <p><strong class="text-indigo-deep">直島錢湯 I♥湯 或 家計畫</strong>：在宮浦港體驗由大竹伸朗拼貼改造的超前衛藝術大眾湯「直島錢湯 I♥湯」，或搭乘公車/租電動單車前往本村地區走訪古民宅活化的「家計畫 (Art House Project)」。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">17:05</span>
+              <p><strong class="text-indigo-deep">搭渡輪返程</strong>：搭船返回宇野港，再銜接電車返回岡山市區。</p>
+            </div>
+
+            <!-- 美食框 -->
+            <div class="p-3.5 rounded-xl bg-orange-50/60 border border-orange-200/50 text-sumi mt-4">
+              <span class="font-bold text-momo-deep text-xs flex items-center gap-1.5 mb-1">
+                <i class="fa-solid fa-utensils"></i> 餐飲推薦：港邊文青咖啡 / 返回岡山和牛燒肉
+              </span>
+              <p class="text-[11px] text-sumi-muted leading-relaxed">
+                午餐推薦於宮浦港周邊的文青咖啡館享用咖哩飯或海鮮食堂；晚餐回岡山後品嚐在地美味的黑毛和牛燒肉、串燒或拉麵。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 6 卡片 -->
+      <div id="day-6" class="day-card zen-card rounded-3xl overflow-hidden p-6 sm:p-8" data-regions="kagawa">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-card-border pb-4 mb-6 gap-3">
+          <div class="flex items-center gap-3.5">
+            <span class="w-12 h-12 rounded-2xl bg-matcha text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">D6</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-matcha">2月2日 (週一)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-sumi-muted">米其林三星名勝</span>
+              </div>
+              <h3 class="serif-title font-bold text-xl text-indigo-deep">香川高松・栗林公園與烏龍麵之鄉巡禮</h3>
+            </div>
+          </div>
+          <span class="text-xs px-3 py-1 bg-green-50 text-green-700 rounded-full w-fit">🚆 JR 快速 Marine Liner（55分）</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- 攝影圖卡 -->
+          <div class="lg:col-span-5 relative rounded-2xl overflow-hidden aspect-[4/3] group cursor-pointer" onclick="openDrawer('ritsurin')">
+            <img src="https://images.unsplash.com/photo-1528164344705-475426879c0d?auto=format&fit=crop&w=900&q=80" alt="高松栗林公園掬月亭與南湖" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-4 text-white">
+              <span class="text-[10px] tracking-wider uppercase text-amber-200">米其林三星評價 • 4.5★</span>
+              <h4 class="font-serif font-bold text-base">特別名勝・栗林公園（掬月亭 ＆ 偃月橋）</h4>
+              <p class="text-[11px] text-white/80 line-clamp-1">借景紫雲山、借景造水的大名庭園代表作</p>
+              <span class="text-[10px] text-white/90 mt-1 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square"></i> 點選查看詳細資訊</span>
+            </div>
+          </div>
+
+          <!-- 行程節奏細節 -->
+          <div class="lg:col-span-7 space-y-4 text-xs text-sumi-muted">
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">08:50 - 09:45</span>
+              <p><strong class="text-indigo-deep">搭乘快速 Marine Liner</strong>：自岡山直奔香川高松站（約 55 分鐘），飽覽瀨戶內群島波光粼粼的明媚海景。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">10:00 - 12:30</span>
+              <p><strong class="text-indigo-deep">栗林公園大名庭園漫步</strong>：轉乘琴電或公車抵達這座獲米其林綠色指南三星認證的名園。漫步於飛來峰，拍攝經典的南湖與偃月橋；走進「掬月亭」點一杯熱抹茶與和菓子，享受心曠神怡的靜謐時光。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">12:30 - 14:00</span>
+              <p><strong class="text-indigo-deep">高松正宗烏龍麵午餐</strong>：朝聖高松超人氣名店 <em>「手打十段 烏龍麵笨蛋一代」</em>（手打十段 うどんバカ一代），必點黑胡椒奶油生蛋拌烏龍麵，香濃彈牙無比。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">14:00 - 17:00</span>
+              <p><strong class="text-indigo-deep">高松港、紅燈塔與玉藻公園</strong>：走訪高松城遺址（玉藻公園）欣賞罕見的海水護城河，到高松港散步至「瀨戶之標」世界首座紅色玻璃燈塔，傍晚逛瓦町商店街。</p>
+            </div>
+
+            <!-- 美食框 -->
+            <div class="p-3.5 rounded-xl bg-orange-50/60 border border-orange-200/50 text-sumi mt-4">
+              <span class="font-bold text-momo-deep text-xs flex items-center gap-1.5 mb-1">
+                <i class="fa-solid fa-utensils"></i> 晚餐推薦：香川名產「骨付鳥」（一鶴）或千屋牛料理
+              </span>
+              <p class="text-[11px] text-sumi-muted leading-relaxed">
+                推薦在高松品嚐著名的帶骨香烤雞腿「骨付鳥」（名店 <em>一鶴</em>，外皮酥脆香料辛辣撲鼻、肉嫩多汁），或返回岡山享用頂級千屋牛燒肉。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 7 卡片 -->
+      <div id="day-7" class="day-card zen-card rounded-3xl overflow-hidden p-6 sm:p-8" data-regions="okayama">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-card-border pb-4 mb-6 gap-3">
+          <div class="flex items-center gap-3.5">
+            <span class="w-12 h-12 rounded-2xl bg-indigo-deep text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">D7</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-aozora">2月3日 (週二)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-sumi-muted">三大名園與烏城</span>
+              </div>
+              <h3 class="serif-title font-bold text-xl text-indigo-deep">岡山深度慢活・日本三大名園與岡山城</h3>
+            </div>
+          </div>
+          <span class="text-xs px-3 py-1 bg-blue-50 text-blue-700 rounded-full w-fit">🚋 岡電路面電車（城下站）</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- 雙景點圖組 -->
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] group cursor-pointer" onclick="openDrawer('korakuen')">
+              <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80" alt="岡山後樂園" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-3.5 text-white">
+                <span class="text-[10px] text-green-200">日本三大名園</span>
+                <h4 class="font-serif font-bold text-sm">岡山後樂園（澤之池 ＆ 唯心山）</h4>
+                <span class="text-[10px] text-white/80"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看細節</span>
+              </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] group cursor-pointer" onclick="openDrawer('okayama-castle')">
+              <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=800&q=80" alt="岡山城烏城" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-3.5 text-white">
+                <span class="text-[10px] text-amber-200">黑漆烏城 • 4.3★</span>
+                <h4 class="font-serif font-bold text-sm">岡山城（天守閣與月見橋）</h4>
+                <span class="text-[10px] text-white/80"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看細節</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 行程節奏細節 -->
+          <div class="lg:col-span-7 space-y-4 text-xs text-sumi-muted">
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">09:30 - 12:00</span>
+              <p><strong class="text-indigo-deep">岡山後樂園</strong>：搭乘路面電車至城下站步行抵達。冬日漫步於日本三大名園之一，登唯心山眺望整潔草坪、延養亭與澤之池，感受江戶大名庭園的開闊大氣。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">12:00 - 13:00</span>
+              <p><strong class="text-indigo-deep">午餐品味</strong>：在後樂園周邊出石町老宅享用特色定食，或嚐嚐融入當地水果甜味的岡山白桃咖哩。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">13:00 - 15:30</span>
+              <p><strong class="text-indigo-deep">過月見橋訪岡山城</strong>：參訪擁有黑色護壁木板、被譽為「烏城」的岡山城天守閣。登頂俯瞰旭川奔流，館內還可體驗戰國武將試穿拍照，品嚐天守閣茶屋特製聖代。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">16:00 - 18:30</span>
+              <p><strong class="text-indigo-deep">出石町散策 ＆ 車站大採購</strong>：漫步出石町明治大正風情的老建築與獨立咖啡館；返回岡山車站商圈（Bic Camera、唐吉訶德、AEON Mall）完成最後一站免稅品大採買。</p>
+            </div>
+
+            <!-- 美食框 -->
+            <div class="p-3.5 rounded-xl bg-orange-50/60 border border-orange-200/50 text-sumi mt-4">
+              <span class="font-bold text-momo-deep text-xs flex items-center gap-1.5 mb-1">
+                <i class="fa-solid fa-utensils"></i> 晚餐推薦：岡山精釀啤酒餐酒館 / 一番街精緻御膳
+              </span>
+              <p class="text-[11px] text-sumi-muted leading-relaxed">
+                在岡山站周邊精釀啤酒店小酌慶祝旅程，或於一番街享用精緻黑毛和牛壽喜燒御膳。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 8 卡片 -->
+      <div id="day-8" class="day-card zen-card rounded-3xl overflow-hidden p-6 sm:p-8" data-regions="okayama">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-card-border pb-4 mb-6 gap-3">
+          <div class="flex items-center gap-3.5">
+            <span class="w-12 h-12 rounded-2xl bg-momo-deep text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">D8</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-momo-deep">2月4日 (週三)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-sumi-muted">伴手禮與歸途</span>
+              </div>
+              <h3 class="serif-title font-bold text-xl text-indigo-deep">最後巡禮與回程：伴手禮採買 ＆ 機場返台</h3>
+            </div>
+          </div>
+          <span class="text-xs px-3 py-1 bg-orange-50 text-orange-700 rounded-full w-fit">✈️ 利木津巴士前往機場</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- 攝影圖卡 -->
+          <div class="lg:col-span-5 relative rounded-2xl overflow-hidden aspect-[4/3] group cursor-pointer" onclick="openDrawer('omiyage')">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80" alt="岡山特產伴手禮" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-4 text-white">
+              <span class="text-[10px] tracking-wider uppercase text-amber-200">Sun Station Terrace</span>
+              <h4 class="font-serif font-bold text-base">岡山特產伴手禮總匯</h4>
+              <p class="text-[11px] text-white/80 line-clamp-1">廣榮堂吉備糰子、大手饅頭、清水白桃果凍</p>
+              <span class="text-[10px] text-white/90 mt-1 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square"></i> 點選查看詳細資訊</span>
+            </div>
+          </div>
+
+          <!-- 行程節奏細節 -->
+          <div class="lg:col-span-7 space-y-4 text-xs text-sumi-muted">
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">09:30 - 11:30</span>
+              <p><strong class="text-indigo-deep">退房寄物與伴手禮衝刺</strong>：飯店辦理退房寄放行李。於岡山站共構商場「Sun Station Terrace Okayama」一網打盡必買名產：<span class="text-indigo-deep font-semibold">大手饅頭</span>（百年甘納豆與紅豆沙名物）、<span class="text-indigo-deep font-semibold">廣榮堂元祖吉備糰子</span>、以及精美的<span class="text-indigo-deep font-semibold">清水白桃果凍</span>與瀨戶內檸檬甜點。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">12:00</span>
+              <p><strong class="text-indigo-deep">回味午餐</strong>：在車站商圈享用旅程最後一道心儀日料，或外帶一份華麗的散壽司便當。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">13:00</span>
+              <p><strong class="text-indigo-deep">前往機場</strong>：回飯店取行李，至岡山站西口巴士站搭乘利木津巴士直達岡山桃太郎機場（約 30 分鐘，建議於起飛前 2 小時抵達辦理登機）。</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-indigo-deep text-sm whitespace-nowrap w-24">下午</span>
+              <p><strong class="text-indigo-deep">出境免稅店與平安返台</strong>：通過安檢後在免稅店完成最後補貨，滿載 8 天 7 夜的美好回憶平安返抵家門！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 景點寫真展示牆 (Highlights Gallery) -->
+  <section id="highlights" class="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+    <div class="text-center max-w-xl mx-auto mb-8">
+      <span class="text-xs font-bold text-aozora tracking-widest uppercase">Visual Tour</span>
+      <h2 class="serif-title text-2xl sm:text-3xl font-bold text-indigo-deep mt-1">瀨戶內・焦點景點一覽</h2>
+      <p class="text-xs text-sumi-muted mt-2">點選任一卡片可隨時開啟詳細指南與實用資訊</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer zen-card" onclick="openDrawer('kurashiki')">
+        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80" alt="倉敷美觀" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-3.5 text-white">
+          <span class="text-[10px] text-amber-200">4.4 ★</span>
+          <h4 class="font-serif font-bold text-sm">倉敷美觀地區</h4>
+          <span class="text-[10px] text-white/70">江戶土藏川舟</span>
+        </div>
+      </div>
+
+      <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer zen-card" onclick="openDrawer('itsukushima')">
+        <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=600&q=80" alt="嚴島神社" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-3.5 text-white">
+          <span class="text-[10px] text-rose-200">4.6 ★</span>
+          <h4 class="font-serif font-bold text-sm">宮島嚴島神社</h4>
+          <span class="text-[10px] text-white/70">海上朱紅大鳥居</span>
+        </div>
+      </div>
+
+      <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer zen-card" onclick="openDrawer('naoshima')">
+        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80" alt="直島紅南瓜" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-3.5 text-white">
+          <span class="text-[10px] text-teal-200">4.5 ★</span>
+          <h4 class="font-serif font-bold text-sm">直島紅南瓜</h4>
+          <span class="text-[10px] text-white/70">草間彌生與當代港灣</span>
+        </div>
+      </div>
+
+      <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer zen-card" onclick="openDrawer('korakuen')">
+        <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80" alt="岡山後樂園" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 img-gradient-overlay flex flex-col justify-end p-3.5 text-white">
+          <span class="text-[10px] text-green-200">日本三大名園</span>
+          <h4 class="font-serif font-bold text-sm">岡山後樂園</h4>
+          <span class="text-[10px] text-white/70">澤之池與唯心山</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 工具區塊：即時匯率計算器 & 行李檢查清單 (Tools) -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- 匯率計算機 -->
+      <div id="calculator" class="zen-card rounded-3xl p-6 sm:p-7">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-aozora-light text-aozora flex items-center justify-center text-lg">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+          <div>
+            <h3 class="serif-title font-bold text-base text-indigo-deep">即時日圓/台幣 換算小幫手</h3>
+            <span class="text-[11px] text-sumi-muted">自由設定匯率，快速估算購物消費</span>
+          </div>
+        </div>
+
+        <div class="space-y-3.5">
+          <div>
+            <label class="block text-[11px] text-sumi-muted mb-1 font-medium">日幣金額 (JPY ¥)</label>
+            <div class="relative">
+              <input type="number" id="calc-jpy" value="10000" class="w-full px-4 py-2.5 rounded-xl border border-card-border text-base font-bold text-indigo-deep focus:outline-none focus:border-aozora">
+              <span class="absolute right-3.5 top-2.5 text-xs text-sumi-muted font-bold">円</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between gap-4">
+            <div class="w-1/2">
+              <label class="block text-[11px] text-sumi-muted mb-1 font-medium">參考匯率</label>
+              <input type="number" id="calc-rate" value="0.21" step="0.005" class="w-full px-3 py-1.5 rounded-xl border border-card-border text-xs font-semibold text-sumi focus:outline-none focus:border-aozora">
+            </div>
+            <div class="w-1/2 text-right">
+              <span class="block text-[11px] text-sumi-muted mb-1 font-medium">折合新台幣 (TWD)</span>
+              <div id="calc-twd-result" class="text-xl font-bold font-serif text-momo-deep">NT$ 2,100</div>
+            </div>
+          </div>
+          <p class="text-[10px] text-sumi-muted">可直接點擊常用面額：
+            <button onclick="setJpy(1000)" class="px-2 py-0.5 rounded bg-gray-100 hover:bg-gray-200 text-sumi text-[10px]">1,000円</button>
+            <button onclick="setJpy(5000)" class="px-2 py-0.5 rounded bg-gray-100 hover:bg-gray-200 text-sumi text-[10px]">5,000円</button>
+            <button onclick="setJpy(10000)" class="px-2 py-0.5 rounded bg-gray-100 hover:bg-gray-200 text-sumi text-[10px]">10,000円</button>
+            <button onclick="setJpy(30000)" class="px-2 py-0.5 rounded bg-gray-100 hover:bg-gray-200 text-sumi text-[10px]">30,000円</button>
+          </p>
+        </div>
+      </div>
+
+      <!-- 出國行李互動清單 -->
+      <div id="packing" class="zen-card rounded-3xl p-6 sm:p-7">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-orange-50 text-momo-deep flex items-center justify-center text-lg">
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            <div>
+              <h3 class="serif-title font-bold text-base text-indigo-deep">行前行李＆證件檢查清單</h3>
+              <span class="text-[11px] text-sumi-muted">自動記憶打勾進度，安心不漏勾</span>
+            </div>
+          </div>
+          <button onclick="resetChecklist()" class="text-[11px] text-sumi-muted hover:text-indigo-deep underline">重設</button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 text-xs" id="checklist-container">
+          <label class="flex items-center gap-2 p-2 rounded-xl bg-gray-50/60 hover:bg-gray-100 cursor-pointer">
+            <input type="checkbox" data-key="item-1" class="rounded text-aozora focus:ring-0">
+            <span>護照（效期6個月以上）</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-xl bg-gray-50/60 hover:bg-gray-100 cursor-pointer">
+            <input type="checkbox" data-key="item-2" class="rounded text-aozora focus:ring-0">
+            <span>Visit Japan Web 填寫截圖</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-xl bg-gray-50/60 hover:bg-gray-100 cursor-pointer">
+            <input type="checkbox" data-key="item-3" class="rounded text-aozora focus:ring-0">
+            <span>日本上網卡 / eSIM 開通</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-xl bg-gray-50/60 hover:bg-gray-100 cursor-pointer">
+            <input type="checkbox" data-key="item-4" class="rounded text-aozora focus:ring-0">
+            <span>ICOCA / Suica 實體或西瓜卡</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-xl bg-gray-50/60 hover:bg-gray-100 cursor-pointer">
+            <input type="checkbox" data-key="item-5" class="rounded text-aozora focus:ring-0">
+            <span>金刀比羅宮好走健走球鞋</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-xl bg-gray-50/60 hover:bg-gray-100 cursor-pointer">
+            <input type="checkbox" data-key="item-6" class="rounded text-aozora focus:ring-0">
+            <span>行動電源與雙孔充電頭</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-xl bg-gray-50/60 hover:bg-gray-100 cursor-pointer">
+            <input type="checkbox" data-key="item-7" class="rounded text-aozora focus:ring-0">
+            <span>防風保暖大衣與輕量圍巾</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-xl bg-gray-50/60 hover:bg-gray-100 cursor-pointer">
+            <input type="checkbox" data-key="item-8" class="rounded text-aozora focus:ring-0">
+            <span>常用個人藥物與眼藥水</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 側邊抽屜面板 (Drawer Component) -->
+  <div id="info-drawer-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeDrawer()"></div>
+
+  <aside id="info-drawer" class="fixed top-0 right-0 bottom-0 w-full sm:w-[460px] bg-white z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col justify-between overflow-y-auto no-scrollbar">
+    <div class="p-6">
+      <div class="flex items-center justify-between pb-4 border-b border-card-border mb-5">
+        <span class="text-xs font-bold text-aozora tracking-wider" id="drawer-tag">SPOT DETAILS</span>
+        <button onclick="closeDrawer()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-sumi-muted flex items-center justify-center transition-colors">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- 抽屜頂部圖片 -->
+      <div class="relative rounded-2xl overflow-hidden aspect-video mb-5 shadow-sm">
+        <img id="drawer-img" src="" alt="景點圖片" class="w-full h-full object-cover">
+        <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-lg text-xs font-bold text-indigo-deep flex items-center gap-1">
+          <i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+          <span id="drawer-rating">4.5</span>
+        </div>
+      </div>
+
+      <h3 class="serif-title font-bold text-2xl text-indigo-deep mb-2" id="drawer-title">景點名稱</h3>
+      <p class="text-xs text-sumi-muted leading-relaxed mb-6" id="drawer-desc">景點詳細介紹說明。</p>
+
+      <!-- 資訊細項列表 -->
+      <div class="space-y-3 bg-gray-50/70 p-4 rounded-2xl text-xs text-sumi mb-6">
+        <div class="flex items-start gap-2.5">
+          <i class="fa-solid fa-location-dot text-aozora mt-0.5 text-xs w-4"></i>
+          <div>
+            <span class="font-bold text-indigo-deep block">交通方式</span>
+            <span id="drawer-access" class="text-sumi-muted leading-relaxed">JR 或 巴士詳情</span>
+          </div>
+        </div>
+        <div class="flex items-start gap-2.5 pt-2 border-t border-gray-200/60">
+          <i class="fa-regular fa-clock text-aozora mt-0.5 text-xs w-4"></i>
+          <div>
+            <span class="font-bold text-indigo-deep block">開放時間 / 營業資訊</span>
+            <span id="drawer-hours" class="text-sumi-muted">24小時 / 特定時間</span>
+          </div>
+        </div>
+        <div class="flex items-start gap-2.5 pt-2 border-t border-gray-200/60">
+          <i class="fa-solid fa-lightbulb text-amber-500 mt-0.5 text-xs w-4"></i>
+          <div>
+            <span class="font-bold text-indigo-deep block">必訪看點與旅人小貼士</span>
+            <span id="drawer-tips" class="text-sumi-muted leading-relaxed">拍照最佳時間點與注意事項</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 地圖外鏈按鈕 -->
+      <a id="drawer-map-btn" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-3 bg-aozora text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 hover:bg-indigo-deep transition-colors shadow-sm">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>在 Google Maps 上查看導航</span>
+      </a>
+    </div>
+
+    <div class="p-4 bg-gray-50 border-t border-card-border text-center text-[10px] text-sumi-muted">
+      晴れの國・岡山 8天7夜個人旅行手帳
+    </div>
+  </aside>
+
+  <!-- 頁尾 Footer -->
+  <footer class="border-t border-card-border mt-16 py-8 text-center text-xs text-sumi-muted">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-center gap-2 mb-2 font-serif font-bold text-sm text-indigo-deep">
+        <span class="w-2 h-2 rounded-full bg-momo-deep"></span> 岡山・瀨戶內 8天7夜旅程手帳 (1/28 - 2/4)
+      </div>
+      <p class="text-[11px]">祝旅途平安晴朗，滿載甘甜白桃與海島藝術的美好回憶！</p>
+    </div>
   </footer>
 
+  <!-- 互動腳本：抽屜資料庫、篩選、計算機與清單持久化 -->
   <script>
-    // 簡易匯率換算腳本
-    const jpyInput = document.getElementById('jpyAmount');
-    const twdDisplay = document.getElementById('twdDisplay');
-    const RATE = 0.21;
+    // 景點抽屜資料庫
+    const spotDatabase = {
+      'okayama-station': {
+        title: '岡山車站商圈 & AEON Mall 岡山',
+        tag: 'SHOPPING & FOOD HUB',
+        rating: '4.4',
+        img: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80',
+        desc: '岡山車站是西日本不可或缺的交通核心，與西日本規模最大的「AEON Mall 岡山」及「岡山一番街」地下街直通。集結藥妝、無印良品、服飾與各類晴王麝香葡萄、白桃等特產名物。',
+        access: 'JR 岡山站東口/西口，步行 1-5 分鐘即可抵達各商場',
+        hours: 'AEON Mall 商店街 10:00 - 21:00，餐廳街至 22:00',
+        tips: '第一天抵達後可在此採買水果、礦泉水與暖暖包，回程時在此一次補齊免稅伴手禮。',
+        mapUrl: 'https://maps.google.com/?q=Okayama+Station'
+      },
+      'kibitsu': {
+        title: '吉備津神社（國寶大迴廊）',
+        tag: 'HISTORIC SHINTO SHRINE',
+        rating: '4.4',
+        img: 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=900&q=80',
+        desc: '傳說中日本桃太郎的原型「大吉備津彥命」總鎮守。其本殿與拜殿名列日本國寶，最為震撼的是順應自然山勢起伏延伸、全長近 400 公尺的木造古迴廊。',
+        access: '自 JR 岡山站搭乘 JR 吉備線（桃太郎線）約 15 分鐘至「吉備津站」，步行約 10 分鐘抵達',
+        hours: '境內開放 05:00 - 18:00（授與所 08:30 - 16:30）',
+        tips: '木造大迴廊的光影非常迷人，早晨 9:30 前遊客最少，適合拍出靜謐莊嚴的和風長廊構圖。',
+        mapUrl: 'https://maps.google.com/?cid=45828749229339892'
+      },
+      'kurashiki': {
+        title: '倉敷美觀地區',
+        tag: 'HISTORIC PRESERVATION DISTRICT',
+        rating: '4.4',
+        img: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=80',
+        desc: '江戶時代直轄領地（天領）的天鵝白壁土藏群。垂柳映照在倉敷川的水面，木造手搖川舟往返穿梭，並有日本首座私立西洋美術館大原美術館與常春藤廣場。',
+        access: 'JR 岡山站搭山陽本線約 17 分鐘抵達倉敷站，南口步行約 10 分鐘',
+        hours: '老街全天開放；店鋪多於 10:00 - 17:30 營業；夜間點燈至 21:00',
+        tips: '抵達時建議先至倉敷館觀光案內所預約「倉敷川遊船」（船票 500 日圓）；傍晚務必停留欣賞夜間點燈倒影。',
+        mapUrl: 'https://maps.google.com/?cid=1283078672125463998'
+      },
+      'atomic-dome': {
+        title: '廣島原子彈爆炸圓頂屋 & 和平公園',
+        tag: 'UNESCO WORLD HERITAGE',
+        rating: '4.7',
+        img: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=900&q=80',
+        desc: '1945 年二戰原爆爆炸中心點少數未倒塌的歷史遺構，1996 年登錄為世界文化遺產。周圍的和平紀念公園與和平之鐘訴說著對世界永恆和平的期盼。',
+        access: '自 JR 廣島站搭乘路面電車（廣電 2號/6號線）至「原爆ドーム前」站下車即達',
+        hours: '公園與圓頂屋外觀全日開放；和平紀念資料館 08:30 - 18:00',
+        tips: '參觀時請保持莊重與肅穆；旁邊的紙鶴塔 (Orizuru Tower) 亦可俯瞰整個和平公園與廣島市景。',
+        mapUrl: 'https://maps.google.com/?cid=3811847912070496406'
+      },
+      'itsukushima': {
+        title: '宮島 嚴島神社與海上大鳥居',
+        tag: 'JAPAN 3 VIEWS • WORLD HERITAGE',
+        rating: '4.6',
+        img: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=900&q=80',
+        desc: '日本三景之一，推古天皇時期創建的壯麗海上神社。16公尺高的朱紅大鳥居立於瀨戶內海中，滿潮時如浮於海面，退潮時可步行至鳥居下方親炙壯麗。',
+        access: '自 JR 廣島站搭山陽本線至「宮島口站」，步行至碼頭轉乘 JR 宮島渡輪約 10 分鐘抵達宮島',
+        hours: '嚴島神社開放時間 06:30 - 17:30 / 18:00',
+        tips: '行前請上宮島觀光協會查詢當日潮汐表；表參道上鹿隻較為溫馴，但仍需注意手中的食物或紙張地圖。',
+        mapUrl: 'https://maps.google.com/?cid=3851185676178806160'
+      },
+      'kotohiragu': {
+        title: '四國香川 金刀比羅宮',
+        tag: 'SACRED MOUNTAIN SHRINE',
+        rating: '4.5',
+        img: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=900&q=80',
+        desc: '自江戶時代起即被譽為「一生必去一次」的聖地。主祀守護海上交通的大物主神。攀登 785 階抵達御本宮，若體力許可，更可繼續挑戰至 1368 階的奧社。',
+        access: '自 JR 岡山站搭乘特急南風（Nanpu）直達 JR 琴平站（約 60 分鐘），出站步行 15 分鐘至參道起點',
+        hours: '參道全日開放；御本宮開扉時間 06:00 - 18:00',
+        tips: '請務必穿著吸震好走的運動健走鞋；參道商店街起點提供免費竹杖借用（需歸還）。',
+        mapUrl: 'https://maps.google.com/?cid=10225130272880865449'
+      },
+      'naoshima': {
+        title: '直島宮浦港（草間彌生紅南瓜）',
+        tag: 'CONTEMPORARY ART SANCTUARY',
+        rating: '4.5',
+        img: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=900&q=80',
+        desc: '瀨戶內國際藝術祭最核心的藝術島嶼。宮浦港口迎賓的草間彌生經典作品「紅南瓜」內部鏤空，旅人可走進內部互動拍照；旁有妹島和世與藤本壯介設計的現代建築。',
+        access: 'JR 岡山站搭宇野線至宇野港，轉乘四國汽船渡輪（20分鐘）直達直島宮浦港',
+        hours: '戶外裝置全天開放；直島錢湯 I♥湯 13:00 - 21:00（週一休）',
+        tips: '下渡輪後建議直接租借電動自行車或配合島內町營巴士時刻表移動至本村地區。',
+        mapUrl: 'https://maps.google.com/?cid=12880043085184778'
+      },
+      'ritsurin': {
+        title: '香川高松 特別名勝・栗林公園',
+        tag: 'MICHELIN 3-STAR JAPANESE GARDEN',
+        rating: '4.5',
+        img: 'https://images.unsplash.com/photo-1528164344705-475426879c0d?auto=format&fit=crop&w=900&q=80',
+        desc: '歷經高松松平家歷代藩主百餘年精修築成的迴遊式大名庭園。借景紫雲山，湖光倒映偃月橋，被譽為「一步一景」，獲米其林綠色指南最高三星評級。',
+        access: '自 JR 岡山站搭快速 Marine Liner 至高松站，轉搭琴電至「栗林公園站」或搭乘公車抵達',
+        hours: '2月開園時間 07:00 - 17:30',
+        tips: '推薦登上「飛來峰」拍下明信片視角的南湖與偃月橋，並在園內掬月亭品嚐抹茶與茶菓子。',
+        mapUrl: 'https://maps.google.com/?cid=13312497043416826132'
+      },
+      'korakuen': {
+        title: '岡山後樂園',
+        tag: 'JAPAN 3 GREAT GARDENS',
+        rating: '4.5',
+        img: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80',
+        desc: '與金澤兼六園、水戶偕樂園齊名的「日本三大名園」。由岡山藩主池田綱政耗時 14 年建造，以寬闊的草坪、流水澤之池與唯心山造景聞名。',
+        access: '自 JR 岡山站前搭乘路面電車（東山本線）至「城下站」，步行約 10 分鐘',
+        hours: '冬季開放時間 08:00 - 17:00',
+        tips: '可購買「後樂園＋岡山城」套票更優惠；園內的福田茶屋能一邊品茗一邊欣賞延養亭美景。',
+        mapUrl: 'https://maps.google.com/?cid=10385034884956895255'
+      },
+      'okayama-castle': {
+        title: '岡山城（烏城）',
+        tag: 'HISTORIC FEUDAL CASTLE',
+        rating: '4.3',
+        img: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80',
+        desc: '戰國大名宇喜多秀家所建，因漆黑的木造外壁如烏鴉羽毛般光亮，又有「烏城」別名。天守閣近年全新整修，可俯瞰旭川並展示豐富戰國歷史。',
+        access: '由後樂園走過「月見橋」即可直達岡山城本丸區域',
+        hours: '天守閣開放 09:00 - 17:30 (最後入場 17:00)',
+        tips: '天守閣內茶屋提供岡山白桃水果芭菲，亦可體驗免費戰國大名打掛服飾拍照。',
+        mapUrl: 'https://maps.google.com/?cid=10268029904158733754'
+      },
+      'omiyage': {
+        title: '岡山特產伴手禮總匯',
+        tag: 'SOUVENIR & LOCAL FOODS',
+        rating: '4.6',
+        img: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80',
+        desc: '岡山擁有盛產頂級清水白桃與晴王葡萄的優勢。車站內的「さんすて (Sun Station)」匯集了廣榮堂吉備糰子、大手饅頭伊部屋、源吉兆庵白桃果凍等名產。',
+        access: 'JR 岡山站二樓與一番街地下共構商圈',
+        hours: '伴手禮專區 07:00 - 21:00',
+        tips: '「大手饅頭」是日本三大饅頭之一，薄皮濃郁豆沙配熱茶極佳；廣榮堂吉備糰子的插畫包裝送禮非常可愛。',
+        mapUrl: 'https://maps.google.com/?q=Sun+Station+Terrace+Okayama'
+      }
+    };
 
-    jpyInput.addEventListener('input', (e) => {
-      const val = parseFloat(e.target.value) || 0;
-      const twd = Math.round(val * RATE);
-      twdDisplay.textContent = `約 NT$ ${twd.toLocaleString()} 元`;
+    // 抽屜面板控制
+    function openDrawer(key) {
+      const data = spotDatabase[key];
+      if (!data) return;
+
+      document.getElementById('drawer-title').textContent = data.title;
+      document.getElementById('drawer-tag').textContent = data.tag;
+      document.getElementById('drawer-rating').textContent = data.rating;
+      document.getElementById('drawer-img').src = data.img;
+      document.getElementById('drawer-desc').textContent = data.desc;
+      document.getElementById('drawer-access').textContent = data.access;
+      document.getElementById('drawer-hours').textContent = data.hours;
+      document.getElementById('drawer-tips').textContent = data.tips;
+      document.getElementById('drawer-map-btn').href = data.mapUrl;
+
+      const drawer = document.getElementById('info-drawer');
+      const backdrop = document.getElementById('info-drawer-backdrop');
+
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      backdrop.classList.add('opacity-100', 'pointer-events-auto');
+      drawer.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('info-drawer');
+      const backdrop = document.getElementById('info-drawer-backdrop');
+
+      backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      drawer.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+    }
+
+    // 區域篩選邏輯
+    function filterRegion(region) {
+      // 按鈕樣式切換
+      document.querySelectorAll('.region-btn').forEach(btn => {
+        if (btn.getAttribute('data-region') === region) {
+          btn.classList.add('bg-indigo-deep', 'text-white');
+          btn.classList.remove('bg-white', 'text-sumi-muted');
+        } else {
+          btn.classList.remove('bg-indigo-deep', 'text-white');
+          btn.classList.add('bg-white', 'text-sumi-muted');
+        }
+      });
+
+      // 卡片顯示隱藏
+      const cards = document.querySelectorAll('.day-card');
+      cards.forEach(card => {
+        const regions = card.getAttribute('data-regions');
+        if (region === 'all' || regions.includes(region)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 匯率計算機邏輯
+    const jpyInput = document.getElementById('calc-jpy');
+    const rateInput = document.getElementById('calc-rate');
+    const twdOutput = document.getElementById('calc-twd-result');
+
+    function updateExchange() {
+      const jpy = parseFloat(jpyInput.value) || 0;
+      const rate = parseFloat(rateInput.value) || 0.21;
+      const twd = Math.round(jpy * rate);
+      twdOutput.textContent = `NT$ ${twd.toLocaleString()}`;
+    }
+
+    jpyInput.addEventListener('input', updateExchange);
+    rateInput.addEventListener('input', updateExchange);
+
+    function setJpy(amount) {
+      jpyInput.value = amount;
+      updateExchange();
+    }
+
+    // 行李清單 localStorage 持久化
+    const checklistItems = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+
+    function loadChecklist() {
+      checklistItems.forEach(cb => {
+        const key = cb.getAttribute('data-key');
+        const saved = localStorage.getItem('okayama_pack_' + key);
+        if (saved === 'true') {
+          cb.checked = true;
+        }
+      });
+    }
+
+    checklistItems.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const key = cb.getAttribute('data-key');
+        localStorage.setItem('okayama_pack_' + key, cb.checked);
+      });
+    });
+
+    function resetChecklist() {
+      checklistItems.forEach(cb => {
+        cb.checked = false;
+        const key = cb.getAttribute('data-key');
+        localStorage.removeItem('okayama_pack_' + key);
+      });
+    }
+
+    // 頁面加載完成後執行
+    window.addEventListener('DOMContentLoaded', () => {
+      loadChecklist();
+      updateExchange();
     });
   </script>
 </body>
